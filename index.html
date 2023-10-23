@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <title>Bookshelf</title>
+  </head>
+  <body>
+    <header>
+      <div class="container flex-jb">
+        <h1>Bookshelf</h1>
+        <div class="inputContainer">
+          <input type="text" placeholder="Search by title or author" />
+          <i class="ri-search-line icon"></i>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="container content">
+        <section>
+          <div class="books">
+            <h2>Looking for a book to read?</h2>
+            <div class="book__container">
+              <div class="book__lists">
+                <div id="book__lists">
+                  <div class="book__item">
+                    <img
+                      src="https://covers.openlibrary.org/w/id/7434792-M.jpg"
+                      decoding="async"
+                    />
+                  </div>
+                  <div class="detail__book">
+                    <div>
+                      <h2>P.S. I Still Love You</h2>
+                      <p>Jenny Han (20191)</p>
+                    </div>
+                    <div class="icon__container flex-jc">
+                      <i class="ri-check-double-fill icon"></i>
+                      <i class="ri-delete-bin-line icon"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="books">
+            <h2>What I've read</h2>
+            <div class="book__container">
+              <div class="book__lists">
+                <div id="done">
+                  <div class="book__item">
+                    <img
+                      src="https://covers.openlibrary.org/w/id/7434792-M.jpg"
+                      decoding="async"
+                    />
+                  </div>
+                  <div class="detail__book">
+                    <div>
+                      <h2>P.S. I Still Love You</h2>
+                      <p>Jenny Han (20191)</p>
+                    </div>
+                    <div class="icon__container flex-jc">
+                      <i class="ri-check-double-fill icon"></i>
+                      <i class="ri-delete-bin-line icon"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="floating flex-jc" id="floating">
+          <i class="ri-add-line"></i>
+        </div>
+      </div>
+
+      <dialog class="modal" id="modal">
+        <div class="form__header flex-jb">
+          <h1>Add new book</h1>
+          <span id="close-button">
+            <i class="ri-close-line icon"></i>
+          </span>
+        </div>
+        <form id="onsubmit">
+          <div class="form__group">
+            <label for="title">Title</label>
+            <input type="text" id="title" name="title" />
+          </div>
+          <div class="form__group">
+            <label for="author">Author</label>
+            <input type="text" id="author" name="author" />
+          </div>
+          <div class="form__group">
+            <label for="year">Year</label>
+            <input type="number" id="year" name="year" />
+          </div>
+          <div class="form__group">
+            <label for="cover_url">Cover URL</label>
+            <input type="text" id="cover_url" name="cover_url" />
+          </div>
+          <div class="form__group flex-js">
+            <input type="checkbox" id="isCompleted" name="isCompleted" />
+            <label for="isCompleted">Have you read it?</label>
+          </div>
+          <button type="submit">Save</button>
+        </form>
+      </dialog>
+    </main>
+    <footer class="container">
+      <p>
+        &copy; Build with ♥️ by
+        <a href="https://github.com/danaharley" target="_blank"
+          >Dana Harliansyah</a
+        >
+      </p>
+    </footer>
+    <script src="js/script.js"></script>
+  </body>
+</html>
