@@ -196,19 +196,23 @@ main {
 
 .icon__container {
   margin-top: 0.5rem;
-  visibility: hidden;
+  /* visibility: hidden; */
 }
 
-#book__lists:hover .icon__container {
+/* #book__lists:hover .icon__container {
   visibility: visible;
 }
 
 #done:hover .icon__container {
   visibility: visible;
-}
+} */
 
 .ri-delete-bin-line {
   color: red;
+}
+
+.ri-arrow-go-back-fill {
+  color: orange;
 }
 
 .active {

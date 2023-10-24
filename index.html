@@ -26,26 +26,7 @@
           <div class="books">
             <h2>Looking for a book to read?</h2>
             <div class="book__container">
-              <div class="book__lists">
-                <div id="book__lists">
-                  <div class="book__item">
-                    <img
-                      src="https://covers.openlibrary.org/w/id/7434792-M.jpg"
-                      decoding="async"
-                    />
-                  </div>
-                  <div class="detail__book">
-                    <div>
-                      <h2>P.S. I Still Love You</h2>
-                      <p>Jenny Han (20191)</p>
-                    </div>
-                    <div class="icon__container flex-jc">
-                      <i class="ri-check-double-fill icon"></i>
-                      <i class="ri-delete-bin-line icon"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <div class="book__lists" id="unread"></div>
             </div>
           </div>
         </section>
@@ -54,26 +35,7 @@
           <div class="books">
             <h2>What I've read</h2>
             <div class="book__container">
-              <div class="book__lists">
-                <div id="done">
-                  <div class="book__item">
-                    <img
-                      src="https://covers.openlibrary.org/w/id/7434792-M.jpg"
-                      decoding="async"
-                    />
-                  </div>
-                  <div class="detail__book">
-                    <div>
-                      <h2>P.S. I Still Love You</h2>
-                      <p>Jenny Han (20191)</p>
-                    </div>
-                    <div class="icon__container flex-jc">
-                      <i class="ri-check-double-fill icon"></i>
-                      <i class="ri-delete-bin-line icon"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <div class="book__lists" id="haveBeenRead"></div>
             </div>
           </div>
         </section>
@@ -90,7 +52,7 @@
             <i class="ri-close-line icon"></i>
           </span>
         </div>
-        <form id="onsubmit">
+        <form name="bookForm">
           <div class="form__group">
             <label for="title">Title</label>
             <input type="text" id="title" name="title" />
