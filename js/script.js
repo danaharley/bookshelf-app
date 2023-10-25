@@ -6,6 +6,8 @@ const modal = document.querySelector("#modal");
 const openModal = document.querySelector("#floating");
 const closeModal = document.querySelector("#close-button");
 
+const searchInput = document.querySelector("#search");
+
 const books = [
   {
     id: 1,
@@ -246,10 +248,88 @@ document.addEventListener(SAVED_EVENT, () => {
   console.log("Data saved successfully.");
 });
 
-document.addEventListener(RENDER_EVENT, () => {
-  const unread = document.getElementById("unread");
-  const haveBeenRead = document.getElementById("haveBeenRead");
-  console.log({ haveBeenRead });
+searchInput.addEventListener("input", () => {
+  const searchTerm = searchInput.value.toLowerCase();
+  const destroyEl = document.querySelectorAll("section");
+  destroyEl.forEach((el) => el.remove());
+
+  const section_search = document.createElement("section");
+
+  const div_books_search = document.createElement("div");
+  div_books_search.classList.add("books");
+
+  const heading2_search = document.createElement("h2");
+  heading2_search.innerText = `Search for ${searchTerm}`;
+
+  const div_book_container_search = document.createElement("div");
+  div_book_container_search.classList.add("book__container");
+
+  const div_book_lists_search = document.createElement("div");
+  div_book_lists_search.classList.add("book__lists");
+  div_book_lists_search.setAttribute("id", "search-result");
+
+  div_book_container_search.append(div_book_lists_search);
+  div_books_search.append(heading2_search, div_book_container_search);
+  section_search.append(div_books_search);
+
+  const renderElementSearch = document.querySelector(".content");
+  renderElementSearch.append(section_search);
+
+  const searchResult = document.querySelector("#search-result");
+
+  searchResult.innerHTML = "";
+
+  // ----------
+  const section_unread = document.createElement("section");
+
+  const div_books_unread = document.createElement("div");
+  div_books_unread.classList.add("books");
+
+  const heading2_unread = document.createElement("h2");
+  heading2_unread.innerText = "Looking for a book to read?";
+
+  const div_book_container_unread = document.createElement("div");
+  div_book_container_unread.classList.add("book__container");
+
+  const div_book_lists_unread = document.createElement("div");
+  div_book_lists_unread.classList.add("book__lists");
+  div_book_lists_unread.setAttribute("id", "unread");
+
+  div_book_container_unread.append(div_book_lists_unread);
+  div_books_unread.append(heading2_unread, div_book_container_unread);
+  section_unread.append(div_books_unread);
+
+  const renderElementUnread = document.querySelector(".content");
+  renderElementUnread.append(section_unread);
+
+  // -----
+  const section_haveBeenRead = document.createElement("section");
+
+  const div_books_haveBeenRead = document.createElement("div");
+  div_books_haveBeenRead.classList.add("books");
+
+  const heading2_haveBeenRead = document.createElement("h2");
+  heading2_haveBeenRead.innerText = "What I've read";
+
+  const div_book_container_haveBeenRead = document.createElement("div");
+  div_book_container_haveBeenRead.classList.add("book__container");
+
+  const div_book_lists_haveBeenRead = document.createElement("div");
+  div_book_lists_haveBeenRead.classList.add("book__lists");
+  div_book_lists_haveBeenRead.setAttribute("id", "haveBeenRead");
+
+  div_book_container_haveBeenRead.append(div_book_lists_haveBeenRead);
+  div_books_haveBeenRead.append(
+    heading2_haveBeenRead,
+    div_book_container_haveBeenRead
+  );
+  section_haveBeenRead.append(div_books_haveBeenRead);
+
+  const renderElementhaveBeenRead = document.querySelector(".content");
+  renderElementhaveBeenRead.append(section_haveBeenRead);
+
+  const unread = document.querySelector("#unread");
+  const haveBeenRead = document.querySelector("#haveBeenRead");
 
   unread.innerHTML = "";
   haveBeenRead.innerHTML = "";
@@ -257,7 +337,26 @@ document.addEventListener(RENDER_EVENT, () => {
   for (const book of books) {
     const bookElement = createBook(book);
 
-    if (bookElement.isCompleted) {
+    const filteredBooks =
+      book.title.toLowerCase().includes(searchTerm) ||
+      book.author.toLowerCase().includes(searchTerm);
+
+    if (filteredBooks) {
+      searchResult.append(bookElement);
+    }
+  }
+});
+
+document.addEventListener(RENDER_EVENT, () => {
+  const unread = document.querySelector("#unread");
+  const haveBeenRead = document.querySelector("#haveBeenRead");
+  unread.innerHTML = "";
+  haveBeenRead.innerHTML = "";
+
+  for (const book of books) {
+    const bookElement = createBook(book);
+
+    if (book.isCompleted) {
       haveBeenRead.append(bookElement);
     } else {
       unread.append(bookElement);

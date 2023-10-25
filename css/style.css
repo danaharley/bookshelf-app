@@ -196,16 +196,7 @@ main {
 
 .icon__container {
   margin-top: 0.5rem;
-  /* visibility: hidden; */
 }
-
-/* #book__lists:hover .icon__container {
-  visibility: visible;
-}
-
-#done:hover .icon__container {
-  visibility: visible;
-} */
 
 .ri-delete-bin-line {
   color: red;
@@ -324,7 +315,7 @@ dialog {
 input[type="checkbox"] {
   height: 1rem;
   width: 1rem;
-  margin: 0;
+  margin: 0 0.25rem 0 0;
 }
 
 label[for="isComplete"] {
