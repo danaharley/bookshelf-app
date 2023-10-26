@@ -64,7 +64,7 @@ const generatedBookObject = (
     id,
     title,
     author,
-    year,
+    year: parseInt(year),
     cover_url,
     isCompleted,
   };
@@ -167,7 +167,13 @@ const createBook = (bookObject) => {
       addBookToCompleted(id);
     });
 
-    div_icon_container.append(icon_check);
+    const icon_trash = document.createElement("i");
+    icon_trash.classList.add("ri-delete-bin-line", "icon");
+    icon_trash.addEventListener("click", () => {
+      removeBookFromCompleted(id);
+    });
+
+    div_icon_container.append(icon_check, icon_trash);
   }
 
   return content;
